@@ -36,6 +36,8 @@ export default {
   name: "Tree",
   mounted() {
     this.$store.commit("loadTree");
+    console.log("normalized data :");
+    console.log(this.$store.state.tree);
   },
   computed: {
     areas() {
