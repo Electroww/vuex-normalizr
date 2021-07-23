@@ -1,0 +1,30 @@
+[
+    {
+        "id": 2,
+        "label": "Dossier 2",
+        "children": [
+            {
+                "id": 3,
+                "label": "Zone 3"
+            },
+            {
+                "id": 4,
+                "label": "Zone 4"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "label": "Dossier 1",
+        "children": [
+            {
+                "id": 1,
+                "label": "Zone 1"
+            },
+            {
+                "id": 2,
+                "label": "Zone 2"
+            }
+        ]
+    }
+]
