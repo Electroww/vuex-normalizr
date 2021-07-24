@@ -39,6 +39,12 @@ const tree = {
             const denormalizedTree = denormalize(state.tree, [folderSchema], entities)
             console.log("Données Dénormalisées :")
             console.log(denormalizedTree)
+        },
+        renameFolder(state, { id, value }) {
+            state.folders[id].label = value
+        },
+        renameArea(state, { id, value }) {
+            state.areas[id].label = value
         }
     },
     actions: {
@@ -50,7 +56,24 @@ const tree = {
         },
         saveTree(context) {
             context.commit('saveTree')
+        },
+        renameFolder(context, payload) {
+            context.commit('renameFolder', payload)
+        },
+        renameArea(context, payload) {
+            context.commit('renameArea', payload)
         }
+    },
+    getters: {
+        getAllFolders(state) {
+            return state.folders
+        },
+        getAllAreas(state) {
+            return state.areas
+        },
+        getTree(state){
+            return state.tree
+        },
     }
 }
 

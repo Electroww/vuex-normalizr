@@ -6,7 +6,8 @@
         <input
           type="text"
           placeholder="renommer"
-          v-model="folders[idFolder].label"
+          :value="folders[idFolder].label"
+          @input="renameFolder(idFolder, $event)"
         />
         <ul class="areas">
           <li
@@ -18,7 +19,8 @@
             <input
               type="text"
               placeholder="renommer"
-              v-model="areas[idArea].label"
+              :value="areas[idArea].label"
+              @input="renameArea(idArea, $event)"
             />
           </li>
         </ul>
@@ -41,14 +43,22 @@ export default {
   },
   computed: {
     areas() {
-      return this.$store.state.tree.areas;
+      return this.$store.getters.getAllAreas;
     },
     folders() {
-      return this.$store.state.tree.folders;
+      return this.$store.getters.getAllFolders;
     },
     tree() {
-      return this.$store.state.tree.tree;
+      return this.$store.getters.getTree;
     },
+  },
+  methods: {
+    renameArea(id, { target: { value }}) {
+      this.$store.dispatch('renameArea', { id, value })
+    },
+    renameFolder(id, { target: { value }}) {
+      this.$store.dispatch('renameFolder', { id, value })
+    }
   },
 };
 </script>
